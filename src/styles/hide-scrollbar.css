@@ -1,0 +1,12 @@
+/* Oculta la barra de desplazamiento para navegadores modernos */
+.scroll-container {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Edge */
+}
