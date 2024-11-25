@@ -3,7 +3,7 @@
 define('server', 'localhost');
 define('user', 'root');
 define('password', '');
-define('db_name', 'marcos_db');
+define('db_name', 'salas_db');
 define('port', '3306');
 
 $db = mysqli_connect(server, user, password, db_name, port);

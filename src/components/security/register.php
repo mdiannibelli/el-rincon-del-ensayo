@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../../db/config/config.php");
 
 if ($db != NULL) {
@@ -25,17 +26,28 @@ if ($db != NULL) {
       $result = mysqli_query($db, $query);
       if (mysqli_num_rows($result) > 0) {
         header("Location: ../../pages/registrarse.php?correo=no");
+        exit();
       } else {
         $insert = "INSERT INTO usuarios(nombre, email, contrasena, telefono, estado, fk_rol) VALUES ('$nombre', '$email', '$password', '$phone', '1', '2')";
 
+        $id_usuario = mysqli_insert_id($db);
+        $_SESSION['id_usuario'] = $id_usuario;
+        $_SESSION['nombre'] = $nombre;
+        $_SESSION['email'] = $email;
+        $_SESSION['telefono'] = $phone;
+        $_SESSION['estado'] = 1;
+        $_SESSION['fk_rol'] = 2;
         mysqli_query($db, $insert);
-        header("Location: ../../users/panel.php");
+        header("Location: ../../users/index.php");
+        exit();
       }
     } else {
       header("Location: ../../pages/registrarse.php?pass=no");
+      exit();
     }
   } else {
     header("Location: ../../pages/registrarse.php?no=no");
+    exit();
   }
 }
 

@@ -31,7 +31,7 @@ if ($db != NULL) {
           header("Location: ../../admin/index.php");
         } else { // si es usuario (2)
           $_SESSION = $data2;
-          header("Location: ../../users/panel.php");
+          header("Location: ../../users/index.php");
         }
       }
     }
