@@ -1,19 +1,14 @@
 -- Crear la base de datos
-CREATE DATABASE salas_ensayo CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE salas_ensayo;
+CREATE DATABASE salas_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE salas_db;
 
--- Tabla salas
-CREATE TABLE salas (
-    id_sala INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    descripcion TEXT,
-    capacidad INT NOT NULL,
-    precio_hora DECIMAL(10, 2) NOT NULL,
-    direccion VARCHAR(255) NOT NULL,
-    img VARCHAR(255)
+-- Crear la tabla roles
+CREATE TABLE roles (
+    id_rol INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_rol VARCHAR(45) NOT NULL
 );
 
--- Tabla usuarios
+-- Crear la tabla usuarios
 CREATE TABLE usuarios (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
@@ -25,13 +20,18 @@ CREATE TABLE usuarios (
     FOREIGN KEY (fk_rol) REFERENCES roles(id_rol)
 );
 
--- Tabla roles
-CREATE TABLE roles (
-  id_rol INT AUTO_INCREMENT PRIMARY KEY,
-  nombre_rol VARCHAR(45) NOT NULL
-)
+-- Crear la tabla salas
+CREATE TABLE salas (
+    id_sala INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    capacidad INT NOT NULL,
+    precio_hora DECIMAL(10, 2) NOT NULL,
+    direccion VARCHAR(255) NOT NULL,
+    foto VARCHAR(255)
+);
 
--- Tabla reservas
+-- Crear la tabla reservas
 CREATE TABLE reservas (
     id_reserva INT AUTO_INCREMENT PRIMARY KEY,
     fecha DATETIME NOT NULL,
@@ -43,16 +43,17 @@ CREATE TABLE reservas (
     FOREIGN KEY (fk_sala) REFERENCES salas(id_sala)
 );
 
--- Tabla equipos
+-- Crear la tabla equipos
 CREATE TABLE equipos (
     id_equipo INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     descripcion TEXT,
     fk_sala INT NOT NULL,
+    foto VARCHAR(255),
     FOREIGN KEY (fk_sala) REFERENCES salas(id_sala)
 );
 
--- Tabla imagenes_salas
+-- Crear la tabla imagenes_salas
 CREATE TABLE imagenes_salas (
     id_imagen INT AUTO_INCREMENT PRIMARY KEY,
     url VARCHAR(255) NOT NULL,
@@ -60,7 +61,7 @@ CREATE TABLE imagenes_salas (
     FOREIGN KEY (fk_sala) REFERENCES salas(id_sala)
 );
 
--- Tabla reseñas
+-- Crear la tabla reseñas
 CREATE TABLE reseñas (
     id_resena INT AUTO_INCREMENT PRIMARY KEY,
     comentario TEXT NOT NULL,
@@ -72,7 +73,7 @@ CREATE TABLE reseñas (
     FOREIGN KEY (fk_sala) REFERENCES salas(id_sala)
 );
 
--- Tabla horarios_disponibles
+-- Crear la tabla horarios_disponibles
 CREATE TABLE horarios_disponibles (
     id_horario INT AUTO_INCREMENT PRIMARY KEY,
     dia_semana VARCHAR(20) NOT NULL,
@@ -81,6 +82,7 @@ CREATE TABLE horarios_disponibles (
     fk_sala INT NOT NULL,
     FOREIGN KEY (fk_sala) REFERENCES salas(id_sala)
 );
+
 
 -- Insertar datos en la tabla salas
 INSERT INTO salas (nombre, descripcion, capacidad, precio_hora, direccion, foto) VALUES
@@ -94,18 +96,19 @@ INSERT INTO salas (nombre, descripcion, capacidad, precio_hora, direccion, foto)
 ('Sala Clásica', 'Sala insonorizada con piano de cola, ideal para ensayos de música clásica', 4, 2000.00, 'Calle Córdoba 123, Rosario', '../public/imgs/rooms/08.avif'),
 ('Sala Urbana', 'Espacio versátil para rap, trap y freestyle con micrófonos de alta calidad', 6, 900.00, 'Av. Corrientes 345, Buenos Aires', '../public/imgs/rooms/09.jpg');
 
-
--- Insertar datos en la tabla usuarios
-INSERT INTO usuarios (nombre, email, contrasena, telefono, estado, fk_rol) VALUES
-('Juan Pérez', 'juan.perez@example.com', '1234', '1234567890', 2),
-('Ana López', 'ana.lopez@example.com', 'abcd', '0987654321', 2),
-('Carlos Gómez', 'carlos.gomez@example.com', 'qwerty', '1122334455', 2);
-('Administrador', 'admin@gmail.com', '123456', '', 1);
-
 -- Insertar datos en la tabla roles
 INSERT INTO `roles` (`id_rol`, `nombre_rol`) VALUES
 (1, 'admin'),
 (2, 'usuario');
+
+-- Insertar datos en la tabla usuarios
+INSERT INTO usuarios (nombre, email, contrasena, telefono, estado, fk_rol) VALUES
+('Juan Pérez', 'juan.perez@example.com', '1234', '1234567890', true, 2),
+('Ana López', 'ana.lopez@example.com', 'abcd', '0987654321', true, 2),
+('Carlos Gómez', 'carlos.gomez@example.com', 'qwerty', '1122334455', true, 2),
+('Administrador', 'admin@gmail.com', '123456', '', true, 1);
+
+
 
 -- Insertar datos en la tabla reservas
 INSERT INTO reservas (fecha, horas_reservadas, estado, fk_usuario, fk_sala) VALUES
