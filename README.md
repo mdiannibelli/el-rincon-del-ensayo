@@ -12,3 +12,8 @@ El Rincón del Ensayo es una aplicación web que ofrece una gran cantidad de sal
 ![Diagrama DB](/DB-FLOWCHART.png)
 
 # Aplicación
+![01](/assets/screenshots/01.png)
+![02](/assets/screenshots/02.png)
+![03](/assets/screenshots/03.png)
+![04](/assets/screenshots/04.png)
+![05](/assets/screenshots/05.png)
