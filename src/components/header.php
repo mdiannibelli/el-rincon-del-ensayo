@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,20 +34,32 @@
       </ul>
     </nav>
     <aside class="my-6 lg:my-0">
-      <div class="flex items-center gap-x-4">
-        <a href="../pages/ingresar.php" class="flex">
-          <svg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg'
-            width='24' height='24' fill='#ff4b1f' viewBox='0 0 24 24'>
-            <path fill-rule='evenodd'
-              d='M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z'
-              clip-rule='evenodd' />
-          </svg>
-          <span class="text-orange-600">Iniciar sesión</span>
-        </a>
-        <div class="w-[1px] h-[14px] bg-orange-600"></div>
-        <a href="../pages/registrarse.php">
-          <span class="text-white">Registrarse</span>
-        </a>
+      <?php if (isset($_SESSION['nombre']) && $_SESSION['nombre'] != ''): ?>
+        <div class="flex items-center gap-x-4">
+          <span class="text-white">Bienvenido <strong
+              class="text-orange-600"><?php echo $_SESSION['nombre']; ?></strong></span>
+          <a href="<?php echo isset($_SESSION['fk_rol']) && $_SESSION['fk_rol'] == 1 ? '../admin/index.php' : '../users/index.php'; ?>"
+            class="text-white text-xs bg-orange-600 px-3 py-1 rounded-2xl">Panel</a>
+          <form method="POST" action="../components/security/logout.php">
+            <button type="submit" class="text-white text-xs bg-gray-900 px-3 py-1 rounded-2xl">Logout</button>
+          </form>
+        </div>
+      <?php else: ?>
+        <div class="flex items-center gap-x-4">
+          <a href="../pages/ingresar.php" class="flex">
+            <svg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg'
+              width='24' height='24' fill='#ff4b1f' viewBox='0 0 24 24'>
+              <path fill-rule='evenodd'
+                d='M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z'
+                clip-rule='evenodd' />
+            </svg>
+            <span class="text-orange-600">Iniciar sesión</span>
+          </a>
+          <div class="w-[1px] h-[14px] bg-orange-600"></div>
+          <a href="../pages/registrarse.php">
+            <span class="text-white">Registrarse</span>
+          </a>
+        <?php endif; ?>
       </div>
     </aside>
   </header>

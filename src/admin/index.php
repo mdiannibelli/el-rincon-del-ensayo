@@ -24,32 +24,32 @@
   </header>
 
   <main>
-    <h1 class="text-4xl text-gray-700 font-light uppercase text-center mt-8">Panel Administrativo</h1>
+    <h1 class="text-4xl text-gray-500 font-light uppercase text-center mt-8">Panel Administrativo</h1>
     <div class="h-[1.5px] bg-gray-700 w-[60%] mx-auto my-4"></div>
 
     <section class="flex flex-col">
-      <h2 class="p-6 text-gray-700 font-2xl uppercase font-light">Todas las salas</h2>
+      <h2 class="p-6 text-gray-500 font-2xl uppercase font-light">Todas las salas</h2>
       <div class="scroll-container flex overflow-x-scroll gap-x-8 px-4">
         <?php
         include_once("../components/salas/mostrar-salas-admin.php");
         ?>
       </div>
-      <span class="my-4 text-gray-700 font-2xl uppercase font-light text-center">Deslizar para ver las demás>></span>
+      <span class="my-4 text-gray-500 font-2xl uppercase font-light text-center">Deslizar para ver las demás>></span>
     </section>
 
     <section class="flex flex-col">
-      <h2 class="p-6 text-gray-700 font-2xl uppercase font-light">Todos los equipos</h2>
+      <h2 class="p-6 text-gray-500 font-2xl uppercase font-light">Todos los equipos</h2>
       <div class="scroll-container flex overflow-x-scroll gap-x-8 px-4">
         <?php
         include_once("../components/equipos/mostrar-equipos-admin.php");
         ?>
       </div>
-      <span class="my-4 text-gray-700 font-2xl uppercase font-light text-center">Deslizar para ver los demás>></span>
+      <span class="my-4 text-gray-500 font-2xl uppercase font-light text-center">Deslizar para ver los demás>></span>
     </section>
 
     <section class="flex justify-around max-w-[1280px] mx-auto">
       <div>
-        <h2 class="p-6 text-gray-700 font-2xl uppercase font-light">Agregar nueva sala+</h2>
+        <h2 class="p-6 text-gray-500 font-2xl uppercase font-light">Agregar nueva sala+</h2>
         <form action="../components/security/agregar-sala.php" enctype="multipart/form-data" method="POST" class="px-8">
           <div class="flex flex-col">
             <label for="nombreSala" class="text-gray-400 p-1">Nombre:</label>
@@ -95,7 +95,7 @@
         </form>
       </div>
       <div>
-        <h2 class="p-6 text-gray-700 font-2xl uppercase font-light">Agregar nuevo equipo+</h2>
+        <h2 class="p-6 text-gray-500 font-2xl uppercase font-light">Agregar nuevo equipo+</h2>
         <form action="../components/security/agregar-equipo.php" enctype="multipart/form-data" method="POST"
           class="px-8">
           <div class="flex flex-col">
@@ -158,7 +158,7 @@
     </div>
 
     <section class="flex flex-col">
-      <h2 class="p-6 text-gray-700 font-2xl uppercase font-light text-center mt-8">Todos los usuarios</h2>
+      <h2 class="p-6 text-gray-500 font-2xl uppercase font-light text-center mt-8">Todos los usuarios</h2>
       <div class="flex flex-col mx-auto p-8">
         <?php
         include_once("../components/users/mostrar-usuarios-admin.php");

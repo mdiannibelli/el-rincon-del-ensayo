@@ -25,5 +25,9 @@
     print "<p class='text-red-500 p-3'>Credenciales incorrectas!</p>";
 
   }
+
+  if (isset($_GET['banned'])) {
+    print "<p class='text-red-500 p-3'>El usuario se encuentra baneado.</p>";
+  }
   ?>
 </form>

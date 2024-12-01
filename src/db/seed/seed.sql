@@ -90,7 +90,7 @@ INSERT INTO salas (nombre, descripcion, capacidad, precio_hora, direccion, foto)
 ('Sala Jazz', 'Sala acondicionada acústicamente para ensayos de jazz y blues', 8, 1200.00, 'Calle San Martín 456, Córdoba', '../public/imgs/rooms/02.webp'),
 ('Sala Acústica', 'Perfecta para ensayos íntimos y acústicos', 5, 800.00, 'Av. Rivadavia 789, Rosario', '../public/imgs/rooms/03.jpg'),
 ('Sala Electrónica', 'Sala equipada con controladores MIDI y sintetizadores para música electrónica', 6, 1000.00, 'Calle Independencia 234, Buenos Aires', '../public/imgs/rooms/04.webp'),
-('Sala Pop', 'Espacio diseñado para ensayos de pop y música ligera', 8, 1100.00, 'Av. Callao 345, Mendoza', '../public/imgs/05.jpg'),
+('Sala Pop', 'Espacio diseñado para ensayos de pop y música ligera', 8, 1100.00, 'Av. Callao 345, Mendoza', '../public/imgs/rooms/05.jpg'),
 ('Sala Experimental', 'Un espacio único con efectos de sonido y atmósfera inmersiva', 7, 1300.00, 'Calle Belgrano 567, La Plata', '../public/imgs/rooms/06.jpg'),
 ('Sala Metal', 'Sala robusta para bandas de metal con doble pedal y amplificadores de alta potencia', 12, 1700.00, 'Av. Santa Fe 678, Buenos Aires', '../public/imgs/rooms/07.jpg'),
 ('Sala Clásica', 'Sala insonorizada con piano de cola, ideal para ensayos de música clásica', 4, 2000.00, 'Calle Córdoba 123, Rosario', '../public/imgs/rooms/08.avif'),

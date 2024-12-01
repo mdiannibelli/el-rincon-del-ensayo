@@ -19,6 +19,11 @@ if ($db != NULL) {
       header("Location: ../../pages/ingresar.php?log=no");
     }
 
+    if ($data['estado'] == 2) {
+      header("Location: ../../pages/ingresar.php?banned=banned");
+      exit;
+    }
+
     if ($data['estado'] == 1) { // si esta activo..
       $query2 = "SELECT * FROM usuarios WHERE email='$email' AND contrasena='$password'";
       $result2 = mysqli_query($db, $query2);
